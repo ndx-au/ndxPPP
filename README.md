@@ -116,6 +116,9 @@ While the patterns come with defaults, you can swap the **Version Control Protoc
 3.  **Prompt:**
     > "I am starting iteration 0001. Read `_work/system.md` and execute the workflow."
 
+## 8\. Final Note
+It is intended and expected that you will adopt the documented patterns as suggestions and MODIFY them to your needs at the outset AND as you go. You can use them as opinionated rails, but every project is different, and you will need to tune your bespoke prompt engine as you go.
+
 ### Contribution
 
 This is an open scientific inquiry into the interaction between human intent and stochastic intelligence. We welcome pull requests that introduce new patterns or refine existing ones based on empirical evidence.
