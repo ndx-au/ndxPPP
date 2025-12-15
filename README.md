@@ -20,9 +20,9 @@ Choose the workflow that matches your team size and risk tolerance.
 
 | Pattern | Complexity | Safety | Git Strategy | Use Case |
 | :--- | :--- | :--- | :--- | :--- |
-| **[Basic](https://www.google.com/search?q=./pattern-basic)** | ⭐ | ⭐ | Trunk-Based | **Prototyping / Scripts.** Speed is the priority. Great for solo MVPs. |
-| **[Standard](https://www.google.com/search?q=./pattern-standard)** | ⭐⭐ | ⭐⭐⭐ | Feature Branch | **Daily Driver.** The industry standard. Safe, clean history, professional hygiene. |
-| **[Adversarial](https://www.google.com/search?q=./pattern-adversarial)** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Any | **High Assurance.** Two agents (Worker + Foreman). Use for crypto, payments, or security-critical code. |
+| **[Basic](./pattern-basic/README.md)** | ⭐ | ⭐ | Trunk-Based | **Prototyping / Scripts.** Speed is the priority. Great for solo MVPs. |
+| **[Standard](./pattern-standard/README.md)** | ⭐⭐ | ⭐⭐⭐ | Feature Branch | **Daily Driver.** The industry standard. Safe, clean history, professional hygiene. |
+| **[Adversarial](./pattern-adversarial/README.md)** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Any | **High Assurance.** Two agents (Worker + Foreman). Use for crypto, payments, or security-critical code. |
 
 -----
 
@@ -101,7 +101,6 @@ This is your digital signature. It signals to the AI: *"This context is now Immu
 
 While the patterns come with defaults, you can swap the **Version Control Protocol** by copying a file from `git-implementations/` into your `_work/` folder and renaming it to `git.md`.
 
-  * **`git-trunk.md`:** Direct commits to main.
   * **`git-feature-branch.md`:** (Standard) Branch per iteration, squash merge.
   * **`git-stacked-diffs.md`:** (Advanced) For managing chains of dependent branches (Layer 1 -\> Layer 2 -\> Layer 3).
 
@@ -109,12 +108,17 @@ While the patterns come with defaults, you can swap the **Version Control Protoc
 
 ## 7\. Usage Guide
 
-**Do not clone this repository.** This is a reference library.
+This is a reference library.
 
-1.  **Pick a Pattern:** Copy the `_work` folder from your chosen pattern into your project root.
-2.  **Bootstrap:** Edit `mission.md` and `architecture.md` to fit your new project.
-3.  **Prompt:**
+1.  **Pick a Pattern:** Start with a pattern README:
+    - [Basic](./pattern-basic/README.md)
+    - [Standard](./pattern-standard/README.md)
+    - [Adversarial](./pattern-adversarial/README.md)
+2.  **Quick Start:** Copy the pattern's `_work/` folder into your project root as `_work/`, then edit `mission.md`, `architecture.md`, and `constitution.md`.
+3.  **Run an Iteration:** Create `_work/0001-your-task/spec.md`, then prompt:
     > "I am starting iteration 0001. Read `_work/system.md` and execute the workflow."
+
+If you want to contribute changes to the patterns, clone/fork this repository.
 
 ## 8\. Final Note
 It is intended and expected that you will adopt the documented patterns as suggestions and MODIFY them to your needs at the outset AND as you go. You can use them as opinionated rails, but every project is different, and you will need to tune your bespoke prompt engine as you go.

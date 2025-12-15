@@ -15,18 +15,19 @@ Since different teams have different Git workflows (Trunk-based, Git Flow, Stack
 
 ## Available Strategies
 
-### 1. `git-trunk.md` (The Default)
-* **Best for:** Solo developers, MVPs, Rapid Prototyping.
-* **Workflow:** Direct commits to `main`. No branches.
-* **Trigger:** Commits happen immediately after `plan.md` and `summary.md`.
+### 1. `git-feature-branch.md` (Standard)
+* **Best for:** Most teams and professional workflows.
+* **Workflow:** One short-lived branch per iteration, merge back via PR / squash merge.
 
 ### 2. `git-stacked-diffs.md` (Advanced)
 * **Best for:** Complex features, Senior/Junior pairings, High-velocity teams.
 * **Workflow:** Breaks large features into a "Stack" of dependent branches (e.g., Schema -> Backend -> UI).
-* **Trigger:** The AI manages a `stack_manifest.md` to keep branches rebased and synchronized.
+* **Trigger:** The AI manages `_work/stack.md` to keep branches rebased and synchronized.
 * **Requires:** A higher context window, as the AI must understand branch dependencies.
 
-### 3. `git-flow.md` (Traditional)
+## Planned Strategies
+
+### `git-flow.md` (Traditional)
 * **Best for:** Enterprise environments with strict release cycles.
 * **Workflow:** Feature branches (`feat/xxx`) merging into `develop`.
 * *(Coming Soon)*

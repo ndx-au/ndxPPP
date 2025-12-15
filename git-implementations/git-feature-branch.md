@@ -11,7 +11,8 @@ The **Feature Branch** strategy (GitHub Flow) is the industry standard for most 
 
 To adopt this strategy, create `_work/git.md` and paste the following content into it.
 
-```markdown
+````markdown
+
 # GIT PROTOCOL: Feature Branch
 
 ## 1. Branch Naming Convention
@@ -56,3 +57,5 @@ To adopt this strategy, create `_work/git.md` and paste the following content in
     * `git push origin main`
 5. Delete the local feature branch.
     * `git branch -D feat/NNNN-name`
+
+````

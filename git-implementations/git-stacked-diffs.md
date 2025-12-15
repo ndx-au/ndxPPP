@@ -16,7 +16,8 @@ This strategy allows for faster code reviews (reviewing just the schema vs. the 
 
 To adopt this strategy, create `_work/git.md` and paste the following content into it.
 
-```markdown
+````markdown
+
 # GIT PROTOCOL: Stacked Diffs
 
 ## 1. The Stack Manifest
@@ -65,3 +66,5 @@ The "Source of Truth" for our branching structure is `_work/stack.md`.
 1. Update `_work/stack.md` to mark the current layer as `[pending_review]`.
 2. Push the branch.
     * *Command:* `git push -u origin HEAD`
+
+````
