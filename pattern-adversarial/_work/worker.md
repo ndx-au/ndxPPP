@@ -29,7 +29,9 @@ Identify the **Current Iteration** folder and check the State signals defined in
 
 ## 3. The Definition of "Ready for Review"
 When you have finished the `plan.md`, you must generate `summary.md`.
-* **Format:**
-    * List exactly which files were modified.
-    * Provide commands to run relevant tests.
-    * Self-certify that `constitution.md` was followed. 
+* **Format:** Follow the `summary.md` contract in `_work/system.md`.
+* **Minimum Requirements:**
+    * `### Files Changed`
+    * `### What Changed`
+    * `### How to Validate`
+    * `### Compliance Checklist`

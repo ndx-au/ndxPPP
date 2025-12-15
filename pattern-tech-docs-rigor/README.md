@@ -29,6 +29,8 @@ This pattern maps software engineering principles directly to technical writing:
 
 ## How to Use This Pattern in ndxGEN
 
+If you're using this repository as a pattern library (not the ndxGEN runtime), you can still adopt the structure by copying `pattern-tech-docs-rigor/_work/` into your project root as `_work/` and adapting any tool-specific path assumptions (e.g., `/live`, `.instructions/`) to your runner.
+
 ### 1. Initialization
 Mount your project root to `/live`. Ensure your `.instructions/` folder contains the agent definitions above.
 

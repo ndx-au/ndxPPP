@@ -13,6 +13,11 @@ Instead of a linear path, this pattern creates a **Quality Loop**:
     * *If Bad:* Creates `incomplete.md` -> **Worker** fixes -> Deletes `incomplete.md` -> Loop.
     * *If Good:* Creates `completed.md`.
 
+## How to Use
+1. Copy `pattern-adversarial/_work/` into your project root as `_work/`.
+2. Edit `_work/mission.md`, `_work/architecture.md`, and `_work/constitution.md` to fit your project.
+3. Create your first iteration folder (e.g., `_work/0001-setup/`) with a `spec.md`.
+
 ## How to Run This
 You will need two separate agent sessions (or prompts).
 

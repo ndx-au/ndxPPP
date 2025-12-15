@@ -14,7 +14,7 @@ Identify the **Current Iteration** folder.
 * **Action: The Audit.**
     1.  Read `spec.md` (What was asked?).
     2.  Read `plan.md` (What was promised?).
-    3.  Read `summary.md` (What was delivered?).
+    3.  Read `summary.md` (What was delivered?). Confirm it follows the `summary.md` contract in `_work/system.md`.
     4.  **Inspect the actual Code:** Read the files listed in `summary.md`.
 
 ## 3. The Decision

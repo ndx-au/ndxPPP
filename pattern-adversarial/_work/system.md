@@ -20,3 +20,24 @@ Inside that Current Iteration folder, the presence of specific files dictates th
 * **Constitution:** `_work/constitution.md` applies to ALL code.
 * **Mission:** `_work/mission.md` applies to ALL design decisions.
 * **Architecture:** `_work/architecture.md` applies to ALL structure.
+
+## 4. `summary.md` Contract (Required Format)
+When the Worker is done, they must create `summary.md` in the Current Iteration folder.
+The Foreman uses it as the entry point for review.
+
+`summary.md` must contain these sections (use headings exactly):
+
+### Files Changed
+- Bullet list of modified/added/deleted files.
+
+### What Changed
+- Short description of what was implemented and why.
+
+### How to Validate
+- Copy-pastable commands to run tests/build/lint.
+- If no automated checks exist, say so and list the manual verification steps performed.
+
+### Compliance Checklist
+- `constitution.md` followed
+- `architecture.md` respected
+- No invented requirements beyond `spec.md`
