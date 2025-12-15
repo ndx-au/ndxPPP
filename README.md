@@ -1,6 +1,8 @@
 # ndxPPP: Passive Prompt Patterns
 
-**Sustainable, State-Based Workflows for AI-Assisted Engineering**
+**TL;DR** instead of throwing ad-hoc prompts at your AI agent, where the majority of the instructions are essentially stream-of-consciousness chaos, take control of the situation by "laying the ground work" in the form of putting files down, which systematically program what the AI agent will do. The approach you take will be a "pattern". You only have to pick ONE of the pattens in this repo to focus your effort. Below, we give a brief explanation of what the different ones are, syou can zero-in on a pattern that is likely to work for you, rather than you thinking you need to learn all of them and then not even try because it seems like too much effort.
+
+Remember that you don't have to write all your planning docs by hand. You can get the AI to build out the boilerplate docs automatically with a review and only minor changes from yourself.
 
 ## 1\. Abstract
 
