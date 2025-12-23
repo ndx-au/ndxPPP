@@ -1,6 +1,6 @@
 # ndxPPP: Passive Prompt Patterns
 
-**TL;DR** instead of throwing ad-hoc prompts at your AI agent, where the majority of the instructions are essentially stream-of-consciousness chaos, take control of the situation by "laying the ground work" in the form of putting files down, which systematically program what the AI agent will do. The approach you take will be a "pattern". You only have to pick ONE of the pattens in this repo to focus your effort. Below, we give a brief explanation of what the different ones are, syou can zero-in on a pattern that is likely to work for you, rather than you thinking you need to learn all of them and then not even try because it seems like too much effort.
+**TL;DR** Instead of throwing ad-hoc prompts at your AI agent (where most instructions are stream-of-consciousness chaos), take control by "laying the groundwork" as files in a repo. Those files systematically program what the AI agent will do. The approach you take is a **pattern**. You only have to pick **one** pattern in this repo to focus your effort. Below is a brief explanation of each, so you can zero-in on a pattern that fits you (instead of feeling like you need to learn all of them).
 
 Remember that you don't have to write all your planning docs by hand. You can get the AI to build out the boilerplate docs automatically with a review and only minor changes from yourself.
 
@@ -25,6 +25,7 @@ Choose the workflow that matches your team size and risk tolerance.
 | **[Basic](./pattern-basic/README.md)** | ⭐ | ⭐ | Trunk-Based | **Prototyping / Scripts.** Speed is the priority. Great for solo MVPs. |
 | **[Standard](./pattern-standard/README.md)** | ⭐⭐ | ⭐⭐⭐ | Feature Branch | **Daily Driver.** The industry standard. Safe, clean history, professional hygiene. |
 | **[Adversarial](./pattern-adversarial/README.md)** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Any | **High Assurance.** Two agents (Worker + Foreman). Use for crypto, payments, or security-critical code. |
+| **[Terence](./pattern-terence/README.md)** | ⭐⭐⭐ | ⭐⭐⭐⭐ | Any | **Evolved Pattern Example.** Shows how you can take ownership of a pattern and evolve it into your own working style. |
 
 -----
 
@@ -40,6 +41,8 @@ This folder contains the project's intelligence. **It is never `.gitignore`'d.**
   * **`_work/constitution.md`:** The "Law." Immutable negative constraints (e.g., "No external deps").
   * **`_work/mission.md`:** The "Soul." High-level values and "vibe" (e.g., "Speed is a feature").
   * **`_work/architecture.md`:** The "Blueprint." The definition of the final Success State.
+
+File names can vary by pattern (for example, some patterns split system/project/role documents). Always follow the pattern's README as the source of truth.
 
 ### B. The "Body" (Project Root)
 
@@ -97,6 +100,12 @@ This is your digital signature. It signals to the AI: *"This context is now Immu
     4.  Worker must fix issues to delete `incomplete.md`.
   * **Ideal for:** Teams where accuracy matters more than speed.
 
+### `📂 pattern-terence/` (The Custom Shop)
+
+  * **Roles:** Multi-role (Architect + Engineer + Worker + Foreman + Operator).
+  * **Logic:** Same core loop (spec → plan → build → review → sign-off), with extra structure around roles and project-level documents.
+  * **Ideal for:** People who want to start from a working template and then **actively evolve it** into their own house style.
+
 -----
 
 ## 6\. Modular Git Strategies
@@ -116,6 +125,7 @@ This is a reference library.
     - [Basic](./pattern-basic/README.md)
     - [Standard](./pattern-standard/README.md)
     - [Adversarial](./pattern-adversarial/README.md)
+  - [Terence](./pattern-terence/README.md)
 2.  **Quick Start:** Copy the pattern's `_work/` folder into your project root as `_work/`, then edit `mission.md`, `architecture.md`, and `constitution.md`.
 3.  **Run an Iteration:** Create `_work/0001-your-task/spec.md`, then prompt:
     > "I am starting iteration 0001. Read `_work/system.md` and execute the workflow."
