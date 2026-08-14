@@ -1,140 +1,71 @@
-# ndxPPP: Passive Prompt Patterns
+---
+type: overview
+title: ndxPPP
+description: Personal operating system for file-system-centric, human-gated AI coding work.
+tags: [ndxppp]
+---
 
-**TL;DR** Instead of throwing ad-hoc prompts at your AI agent (where most instructions are stream-of-consciousness chaos), take control by "laying the groundwork" as files in a repo. Those files systematically program what the AI agent will do. The approach you take is a **pattern**. You only have to pick **one** pattern in this repo to focus your effort. Below is a brief explanation of each, so you can zero-in on a pattern that fits you (instead of feeling like you need to learn all of them).
+# ndxPPP
 
-Remember that you don't have to write all your planning docs by hand. You can get the AI to build out the boilerplate docs automatically with a review and only minor changes from yourself.
+A personal operating system for agent work. Rules, architecture, and iteration state live as ordinary markdown in the repo — versioned, inspectable, and gated by a human. Chat is the engine. These files are the rails.
 
-## 1\. Abstract
+This is not a framework to install and not a product to evangelize. It is the process substrate you copy into a repo and then evolve.
 
-**ndxPPP** (Passive Prompt Patterns) is an open-source methodology for maintaining context, intent, and architectural integrity in AI-assisted software projects.
+**Why files beat chat:** [docs/philosophy.md](docs/philosophy.md). **What changed in 2026:** [docs/changelog.md](docs/changelog.md).
 
-It proposes a shift away from "Active" agent frameworks (which hide state in temporary chat windows or proprietary databases) toward a **File-System-Centric** approach. By encoding the project's state, rules, and mission into standardized, passive text files, we create workflows that are:
+## 60-second start
 
-1.  **Tool Agnostic:** Works with `opencode`, Cursor, Windsurf, or raw LLM APIs.
-2.  **Context-Rot Resistant:** History is preserved in the repo, not the chat session.
-3.  **Human-Gated:** The AI is the engine; you are the steering wheel.
+1. Read [brain/mission.md](brain/mission.md) and [brain/constitution.md](brain/constitution.md). They describe *this* repo. In another project, you replace them.
+2. Point your agent at [AGENTS.md](AGENTS.md).
+3. Start an iteration: ask the Engineer for a spec, or create `work/NNNN-short-slug/spec.md` yourself.
+4. Worker writes `plan.md`, waits for you, then implements and writes `summary.md`.
+5. Foreman writes `completed.md` or `incomplete.md`.
+6. You sign off by moving the folder to `work/archive/`. Agents cannot do this step.
 
------
+```
+spec.md → plan.md → summary.md → completed.md | incomplete.md → you archive
+```
 
-## 2\. The Pattern Menu
+## Layout
 
-Choose the workflow that matches your team size and risk tolerance.
+| Path | Role |
+|---|---|
+| [AGENTS.md](AGENTS.md) | Agent bootloader (always on) |
+| [brain/](brain/constitution.md) | Law, why, success state, process |
+| [work/](work/README.md) | Iterations; `archive/` is human-only |
+| [skills/](skills/ndxppp-engineer/SKILL.md) | Engineer, Worker, Foreman, Operator |
+| [profiles/](profiles/review.md) | Overlays: review (default), solo, docs |
+| [git/](git/human-gated.md) | Swappable git protocol |
+| [templates/](templates/spec.md) | Iteration artifact skeletons |
+| [docs/](docs/philosophy.md) | The human manual |
 
-| Pattern | Complexity | Safety | Git Strategy | Use Case |
-| :--- | :--- | :--- | :--- | :--- |
-| **[Basic](./pattern-basic/README.md)** | ⭐ | ⭐ | Trunk-Based | **Prototyping / Scripts.** Speed is the priority. Great for solo MVPs. |
-| **[Standard](./pattern-standard/README.md)** | ⭐⭐ | ⭐⭐⭐ | Feature Branch | **Daily Driver.** The industry standard. Safe, clean history, professional hygiene. |
-| **[Adversarial](./pattern-adversarial/README.md)** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Any | **High Assurance.** Two agents (Worker + Foreman). Use for crypto, payments, or security-critical code. |
-| **[Terence](./pattern-terence/README.md)** | ⭐⭐⭐ | ⭐⭐⭐⭐ | Any | **Evolved Pattern Example.** Shows how you can take ownership of a pattern and evolve it into your own working style. |
+The **brain** is durable project intelligence. The **body** is everything else in the repo (in this repo, the OS files *are* the product).
 
------
+## Pick a profile
 
-## 3\. The Core Anatomy
+Declare profile + git module in `AGENTS.md`. This repo uses **review** + **human-gated**.
 
-Regardless of which pattern you choose, every `ndxPPP` project relies on a strict separation between "Thinking" and "Doing."
+| Profile | When |
+|---|---|
+| [review](profiles/review.md) | Default. Foreman must approve before you archive. |
+| [solo](profiles/solo.md) | Throwaway / prototype. Foreman on demand. |
+| [docs](profiles/docs.md) | Technical writing. Writer/Editor names on the same loop. |
 
-### A. The "Brain" (`_work/`)
+Git defaults to [human-gated](git/human-gated.md) (agents propose, you commit). [feature-branch](git/feature-branch.md), [stacked-diffs](git/stacked-diffs.md), and [iteration-semver](git/iteration-semver.md) are opt-in.
 
-This folder contains the project's intelligence. **It is never `.gitignore`'d.**
+## Documentation map
 
-  * **`_work/system.md`:** The "Operating System." Teaches the AI how to navigate folders.
-  * **`_work/constitution.md`:** The "Law." Immutable negative constraints (e.g., "No external deps").
-  * **`_work/mission.md`:** The "Soul." High-level values and "vibe" (e.g., "Speed is a feature").
-  * **`_work/architecture.md`:** The "Blueprint." The definition of the final Success State.
+- [Philosophy](docs/philosophy.md) — the argument
+- [Anatomy](docs/anatomy.md) — files and folders
+- [Workflow](docs/workflow.md) — state machine and the human gate
+- [Roles](docs/roles.md) — who may do what
+- [Tools](docs/tools.md) — Cursor, Claude Code, OpenSpec, MCP
+- [Ontology](docs/ontology.md) — YAML frontmatter / OKF
+- [Adopting](docs/adopting.md) — copy this OS into another repo
+- [Evolving](docs/evolving.md) — change the rails on purpose
+- [Anti-patterns](docs/anti-patterns.md) — ceremony vs discipline
+- [Changelog](docs/changelog.md) — v1 → v2
 
-File names can vary by pattern (for example, some patterns split system/project/role documents). Always follow the pattern's README as the source of truth.
+## Using it here
 
-### B. The "Body" (Project Root)
-
-The root directory contains your actual source code. The AI reads from the **Brain** to decide how to modify the **Body**.
-
------
-
-## 4\. The Workflow Loop
-
-Work is broken into discrete units called **Iterations**. Each iteration lives in a numbered folder inside `_work/`.
-
-### 1\. The Seed (Human)
-
-You create a new folder `_work/0005-add-search/` and add a `spec.md`.
-
-> *Note:* You define the requirement. The AI does not invent work.
-
-### 2\. The Execution (AI)
-
-The AI reads the spec, creates a `plan.md`, and implements the code. It iterates until it produces a `summary.md`.
-
-### 3\. The Sign-Off (Human)
-
-**This is the most critical step.** The AI cannot "finish" an iteration; only you can.
-
-1.  **Review:** You check the `summary.md` and the code.
-2.  **Approve:** You rename the folder from `0005-add-search` to `_0005-add-search`.
-
-**The Leading Underscore `_`:**
-This is your digital signature. It signals to the AI: *"This context is now Immutable History. Do not attempt to fix it. Move on."*
-
------
-
-## 5\. Detailed Pattern Breakdown
-
-### `📂 pattern-basic/` (The Speedboat)
-
-  * **Roles:** Single Agent.
-  * **Logic:** Reads Spec → Writes Code → Commits to Main.
-  * **Ideal for:** Hackathons, scripts, one-off tools.
-
-### `📂 pattern-standard/` (The Sedan)
-
-  * **Roles:** Single Agent.
-  * **Logic:** Reads Spec → **Creates Branch** → Writes Code → **Squash Merge**.
-  * **Ideal for:** Most professional software projects. Keeps `main` clean and deployable.
-
-### `📂 pattern-adversarial/` (The Tank)
-
-  * **Roles:** Dual Agents (**Worker** & **Foreman**).
-  * **Logic:**
-    1.  **Worker** builds and submits `summary.md`.
-    2.  **Foreman** audits code against the `constitution.md`.
-    3.  If flaws are found, Foreman creates `incomplete.md`.
-    4.  Worker must fix issues to delete `incomplete.md`.
-  * **Ideal for:** Teams where accuracy matters more than speed.
-
-### `📂 pattern-terence/` (The Custom Shop)
-
-  * **Roles:** Multi-role (Architect + Engineer + Worker + Foreman + Operator).
-  * **Logic:** Same core loop (spec → plan → build → review → sign-off), with extra structure around roles and project-level documents.
-  * **Ideal for:** People who want to start from a working template and then **actively evolve it** into their own house style.
-
------
-
-## 6\. Modular Git Strategies
-
-While the patterns come with defaults, you can swap the **Version Control Protocol** by copying a file from `git-implementations/` into your `_work/` folder and renaming it to `git.md`.
-
-  * **`git-feature-branch.md`:** (Standard) Branch per iteration, squash merge.
-  * **`git-stacked-diffs.md`:** (Advanced) For managing chains of dependent branches (Layer 1 -\> Layer 2 -\> Layer 3).
-
------
-
-## 7\. Usage Guide
-
-This is a reference library.
-
-1.  **Pick a Pattern:** Start with a pattern README:
-    - [Basic](./pattern-basic/README.md)
-    - [Standard](./pattern-standard/README.md)
-    - [Adversarial](./pattern-adversarial/README.md)
-  - [Terence](./pattern-terence/README.md)
-2.  **Quick Start:** Copy the pattern's `_work/` folder into your project root as `_work/`, then edit `mission.md`, `architecture.md`, and `constitution.md`.
-3.  **Run an Iteration:** Create `_work/0001-your-task/spec.md`, then prompt:
-    > "I am starting iteration 0001. Read `_work/system.md` and execute the workflow."
-
-If you want to contribute changes to the patterns, clone/fork this repository.
-
-## 8\. Final Note
-It is intended and expected that you will adopt the documented patterns as suggestions and MODIFY them to your needs at the outset AND as you go. You can use them as opinionated rails, but every project is different, and you will need to tune your bespoke prompt engine as you go.
-
-### Contribution
-
-This is an open scientific inquiry into the interaction between human intent and stochastic intelligence. We welcome pull requests that introduce new patterns or refine existing ones based on empirical evidence.
+This repository dogfoods the OS. The first real iteration is [work/0001-modernize-v2](work/0001-modernize-v2/spec.md).
